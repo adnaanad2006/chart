@@ -133,7 +133,7 @@ h2 {
     <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
     <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
     
-  
+    
     <img  src="images/business-2-img.png" style="position: relative;width: 51px;" /> </div>
   <!-- Section first End --> 
   
@@ -204,8 +204,8 @@ h2 {
 						);
 	$total_country = 0;
 	
-	foreach($country as $key) {
-		$total_country += $_POST[$key['alias']];
+	foreach($country as $coun) {
+		$total_country += $_POST[$coun['alias']];
 	}
 	
 	  ?>
@@ -213,9 +213,9 @@ h2 {
         <div style="width:100%">
         	<?php foreach($country as $k => $coun) {
 				
-				$width = ($_POST[$coun['alias']] / $total_country) * 100;
+				$width = $_POST[$coun['alias']] / $total_country * 100;
 				if(($k+1) == count($country)) {
-					$width = ($_POST[$coun['alias']] / $total_country) * 80;
+					$width = $_POST[$coun['alias']] / $total_country * 80;
 				}
 				?>
           <div style="float:left;width:<?php echo $width?>%; background-color:<?php echo $coun['bgcolor'];?>;height: 23px;  padding-top: 18px;text-align: left;font-weight: bold;color: #FFFFFF;"><span style="padding-left:4px;"><?php echo $_POST[$coun['alias']];?></span></div>
@@ -271,7 +271,9 @@ h2 {
   <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
   <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
   <!-- Section Third Start --> 
-    
+  
+  
+  
   <!--MEA FRONT/MIDDLE/BACK* HC SUMMARY -->
   <div class="main-content" style="width:1000px;float:none;margin:0 auto; clear:both;">
     <div style="width:1000px;float:left;">
@@ -333,8 +335,9 @@ h2 {
   <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
   <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
   <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
-  <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>  
- 
+  <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
+  
+  
   <!-- Section Fifth Start -->
   <div class="main-content" style="width:1000px;float:none;margin:0 auto; clear:both;">
     <div style="width:1000px;float:left;"> <img src="images/diversity-logo.png" style="position:relative;margin-bottom:-2%;margin-top:2%;width: 74px;"/>
@@ -494,9 +497,9 @@ h2 {
   <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
   <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
   <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
-   
+    
   <!-- Section Eight Start --> 
-   <pagebreak />
+  
   <!-- YTD MEA ATTRITION Vs. MCWW -->
   <div class="main-content" style="width:1000px;float:none;margin:0 auto; clear:both;">
     <div style="width:1000px;float:left;">
@@ -538,7 +541,7 @@ h2 {
   <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
   <div style="margin-top: -8px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
   <div style="margin-top: -8px; padding-bottom:20px;text-align: left;width: 100%;clear: both;margin-left:49.9%;">|</div>
-   
+    
   <!-- Section Tenth Start -->
   <div class="main-content" style="width:1000px;float:none;margin:0 auto; clear:both;">
     <div style="font-size: 30px;color: #307d99;margin-bottom: 20px;">JAN 2015 MOVES</div>
