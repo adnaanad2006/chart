@@ -1,0 +1,1938 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style>
+body {
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.canvasjs-chart-container {
+	float: left;
+}
+#chart-view-HC .canvasjs-chart-container {
+	text-align: center !important;
+}
+#chart-view-HC .canvasjs-chart-canvas {
+	position: relative !important;
+}
+h2 {
+	color: #065567;
+}
+.form {
+	display: block;
+}
+.chart1_img {
+	margin-left: 3px;
+}
+.chart1_img1 {
+	margin-left: -47px;
+}
+.submit_button {
+	display: block;
+}
+.submit_button_no {
+	display: none;
+}
+#back {
+	display: none;
+}
+.hr_dis {
+	display: none;
+}
+.hr_dis_all {
+	display: block;
+}
+.main-content {
+	width: 1000px;
+	height: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+#form_layout {
+	width: 300px;
+	float: left;
+	height: 300px;
+}
+.form_no {
+	display: none;
+}
+#chart-view {
+	width: 500px;
+	margin: 0 auto;
+	position: relative;
+}
+.canvasjs-chart-toolbar {
+	display: none!important;
+}
+.canvasjs-chart-credit {
+	display: none!important;
+}
+.top_table td,
+.middle-table td {
+	margin-bottom: 5px;
+	float:left;
+}
+.top_table td:first-child {
+	width: 80px;
+	text-align: left;
+}
+.middle-table {
+	width: 100%;
+}
+.middle-table tr {
+	width: 100%;
+}
+.middle-table td {
+	width: 10%;
+	text-align: left;
+}
+.preview .chart1_img.chart1_img1{ left:49.5% !important;}
+.preview .hr_dis{ display: inline;}
+.preview input#date {
+  border: none;
+  padding-left: 5px;
+  background: #C0D8E2;
+}
+
+.preview .main-content{ padding-top:20px;}
+.preview .user_input_area{ display:none;}
+
+.preview_only{ display:none;}
+.preview .preview_only{ display:inline;}
+#download{ display:none;}
+.preview #download{ display:inline;}
+</style>
+</head>
+
+<body>
+<div class="wrapper" style="width:1000px; height:auto; margin:0 auto;">
+  <div id="header" style="width:1000px; height:530px; margin:0 auto;position:relative;"> <img src="images/header_img.jpg" width="1000" height="530" style="position:absolute;left:0;"/>
+    <div style="position:relative; padding-top: 50px;"> <img src="images/mastercard-logo.png" width="150" height="111" style="" />
+      <h1 style="font-size: 35px; margin:10px 0; padding:0; color: rgba(0,0,0,0.77);">MEA WORKFORCE<br />
+        DASHBOARD</h1>
+      <h5 style="font-size: 17px; margin:0; padding:0; color: rgba(0,0,0,0.77);">as of <input type="text" placeholder="31st January, 2015" value="31st January, 2015" name="date" id="date"  /></h5>
+    </div>
+  </div>
+  <!-- Section first Start -->
+  <div class="main-content" style="width: 1000px;height: auto;margin: 0 auto;text-align: center; clear:both;">
+    <h2 style="font-size:33px;">WORKFORCE BY BUSINESS UNIT</h2>
+    <hr class="hr_dis" style="height:80px;width:2px;background-color:#065567;border:none;" />
+    <div class="form" id="form_layout">
+      <form id="frm1" method="post">
+        <table class="top_table" style="margin-top: 50px;">
+          <tr style="margin-bottom: 10px;">
+            <td>HR</td>
+            <td><input type="number" size="15" name="hr" id="hr_detail" min="0" max="100" value="20" /></td>
+          </tr>
+          <tr style="margin-bottom: 10px;">
+            <td>LFI</td>
+            <td><input type="number" size="15" name="lfi" id="lfi_detail" min="0" max="100" value="15" /></td>
+          </tr>
+          <tr style="margin-bottom: 10px;">
+            <td>FINANCE</td>
+            <td><input type="number" size="15" name="finance" id="finance_detail" min="0" max="100" value="15" /></td>
+          </tr>
+          <tr style="margin-bottom: 10px;">
+            <td>O&amp;T</td>
+            <td><input type="number" size="15" name="ot" id="ot_detail" min="0" max="100" value="20" /></td>
+          </tr>
+          <tr style="margin-bottom: 10px;">
+            <td>GP&amp;S</td>
+            <td><input type="number" size="15" name="gps" id="gps_detail" min="0" max="100" value="15" /></td>
+          </tr>
+          <tr style="margin-bottom: 10px;">
+            <td>IMK</td>
+            <td><input type="number" size="15" name="imk" id="imk_detail" min="0" max="100" value="15" /></td>
+          </tr>
+        </table>
+      </form>
+      <button type="button" name="submit" style="margin-bottom: 30px;" onClick="javascript:draw_chart_load()" class="submit_button">Generate Pie-Chart</button>
+    </div>
+    
+    <div id="chart-view">
+      <div style="position:relative;width:500px;height:300px;" id="chartContainer"> </div>
+      <div class="chart1_img" style="position: absolute;top: 56%;left: 44.5%;margin-top: -57px;"><img src="images/img-1.png" width="100" height="98" /></div>
+    </div>
+    <hr class="hr_dis" style="height:120px;width:2px;background-color:#065567;border:none;margin-top:-10%;margin-top: 4%;position: relative;" />
+    <img class="hr_dis" src="images/business-2-img.png" style="margin-top:-2%;position: relative;" /> 
+    
+   </div>
+  <!-- Section first End --> 
+  
+  <!-- Section Second Start --> 
+  <!--WORKFORCE BY LOCATION -->
+  <div class="main-content" style="width:1000px;float:none;margin:0 auto; clear:both; ">
+    <div style="width:1000px;float:left;">
+      <h2 style="font-size:33px;">WORKFORCE BY LOCATION</h2>
+      <div class="form">
+        <form id="frm2" method="post">
+          <table align="center" class="middle-table">
+            <tr>
+              <td>UAE</td>
+              <td><input type="number" placeholder="In 100% percentage.." style="width: 68px;" id="uae" name="uae" min="0" max="100" value="20"></td>
+              <td>South Africa</td>
+              <td><input type="number" placeholder="In 100% percentage.." style="width: 68px;" id="sa" name="sa" min="0" max="100" value="20" ></td>
+              <td>Nigeria</td>
+              <td><input type="number" placeholder="In 100% percentage.." style="width: 68px;" id="nigeria" name="nigeria" min="0" max="100" value="20"></td>
+              <td>Egypt</td>
+              <td><input type="number" placeholder="In 100% percentage.." style="width: 68px;" id="egypt" name="egypt" min="0" max="100" value="20"></td>
+            </tr>
+            <tr>
+              <td>Kenya</td>
+              <td><input type="number" placeholder="In 100% percentage.." style="width: 68px;" id="kenya" name="kenya" min="0" max="100" value="20"></td>
+              <td>Qatar</td>
+              <td><input type="number" placeholder="In 100% percentage.." style="width: 68px;" id="qatar" name="qatar" min="0" max="100" value="20" ></td>
+              <td>Morocco</td>
+              <td><input type="number" placeholder="In 100% percentage.." style="width: 68px;" id="morocco" name="morocco" min="0" max="100" value="20"></td>
+              <td>KSA</td>
+              <td><input type="number" placeholder="In 100% percentage.." style="width: 68px;" id="ksa" name="ksa" min="0" max="100" value="20"></td>
+            </tr>
+            <tr>
+              <td>Pakistan</td>
+              <td><input type="number" placeholder="In 100% percentage.." style="width: 68px;" id="pak" name="pak" min="0" max="100" value="20"></td>
+              <td>Jordan</td>
+              <td><input type="number" placeholder="In 100% percentage.." style="width: 68px;" id="jordan" name="jordan" min="0" max="100" value="20" ></td>
+              <td>Lebanon</td>
+              <td><input type="number" placeholder="In 100% percentage.." style="width: 68px;" id="lebanon" name="lebanon" min="0" max="100" value="20"></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <button type="button" name="submit" style="margin-bottom: 30px;" class="submit_button" onClick="javascript:draw_chart_location_load()">Generate Location Chart</button>
+      <div id="error_report"></div>
+    </div>
+    <div id="chart-view-2" style="position:relative;width:1000px;height:300px;float:left;">
+      <div id="chart-view-2-inner" style="position:relative;width:1000px;height:100px;float:left;"> </div>
+      <div style="height:200px;position:relative;width:1000px;float:left;">
+        <ul>
+          <li style="font-size:18px;font-weight:bold;list-style-type:none;float:left; width:16%; text-align: center; margin-bottom: 20px;color:#faa21b;" class="opt-01"><span style="display:block;" class="icon"><img src="images/pin_01.png" width="25" height="33" alt=""></span>UAE <span id="ua_span"></span></li>
+          <li style="font-size:18px;font-weight:bold;list-style-type:none;float:left; width:16%; text-align: center; margin-bottom: 20px;color:#ed1c24;" class="opt-02"><span style="display:block;" class="icon"><img src="images/pin_02.png" width="25" height="33" alt=""></span>South Africa <span id="sa_span"></span><!-- --></li>
+          <li style="font-size:18px;font-weight:bold;list-style-type:none;float:left; width:16%; text-align: center; margin-bottom: 20px;color:#065567;" class="opt-03"><span style="display:block;" class="icon"><img src="images/pin_03.png" width="25" height="33" alt=""></span>Nigeria <span id="ni_span"></span><!-- --></li>
+          <li style="font-size:18px;font-weight:bold;list-style-type:none;float:left; width:16%; text-align: center; margin-bottom: 20px;color:#fec00f;" class="opt-04"><span style="display:block;" class="icon"><img src="images/pin_04.png" width="25" height="33" alt=""></span>Egypt <span id="eg_span"></span><!-- --></li>
+          <li style="font-size:18px;font-weight:bold;list-style-type:none;float:left; width:16%; text-align: center; margin-bottom: 20px;color:#b02d25;" class="opt-05"><span style="display:block;" class="icon"><img src="images/pin_05.png" width="25" height="33" alt=""></span>Kenya <span id="ke_span"></span><!-- --></li>
+          <li style="font-size:18px;font-weight:bold;list-style-type:none;float:left; width:16%; text-align: center; margin-bottom: 20px;color:#307d99;" class="opt-06"><span style="display:block;" class="icon"><img src="images/pin_06.png" width="25" height="33" alt=""></span>Qatar <span id="qa_span"></span><!-- --></li>
+		  <li style="font-size:18px;font-weight:bold;list-style-type:none;float:left; width:20%; text-align: center; margin-bottom: 20px;color:#da1c5c;" class="opt-07"><span style="display:block;" class="icon"><img src="images/pin_07.png" width="25" height="33" alt=""></span>Morocco <span id="mo_span"></span><!-- --></li>
+          <li style="font-size:18px;font-weight:bold;list-style-type:none;float:left; width:20%; text-align: center; margin-bottom: 20px;color:#754d29;" class="opt-08"><span style="display:block;" class="icon"><img src="images/pin_08.png" width="25" height="33" alt=""></span>KSA <span id="ksa_span"></span><!-- --></li>
+          <li style="font-size:18px;font-weight:bold;list-style-type:none;float:left; width:20%; text-align: center; margin-bottom: 20px;color:#808285;" class="opt-09"><span style="display:block;" class="icon"><img src="images/pin_09.png" width="25" height="33" alt=""></span>Pakistan <span id="pak_span"></span><!-- --></li>
+          <li style="font-size:18px;font-weight:bold;list-style-type:none;float:left; width:20%; text-align: center; margin-bottom: 20px;color:#2bb673;" class="opt-10"><span style="display:block;" class="icon"><img src="images/pin_10.png" width="25" height="33" alt=""></span>Jordan <span id="jrdn_span"></span><!-- --></li>
+          <li style="font-size:18px;font-weight:bold;list-style-type:none;float:left; width:20%; text-align: center; margin-bottom: 20px;color:#92278f;" class="opt-11"><span style="display:block;" class="icon"><img src="images/pin_11.png" width="25" height="33" alt=""></span>Lebanon <span id="lebn_span"></span><!-- --></li>
+        </ul>
+      </div>
+    </div>
+	<div style="clear:both;"></div>
+    <hr class="hr_dis" style="height:120px;width:2px;background-color:#065567;border:none;margin-bottom: -2%;margin-top: -6%;position: relative;" />
+  </div>
+  <!-- Section Second End --> 
+  
+  <!-- Section Third Start --> 
+  <!--MEA FRONT/MIDDLE/BACK* HC SUMMARY -->
+  <div class="main-content" style="width:1000px;float:none;margin:0 auto; clear:both;">
+    <div style="width:1000px;float:left;">
+      <h2 style="font-size:33px;">MEA FRONT/MIDDLE/BACK* HC SUMMARY</h2>
+      
+    </div>
+    <div id="chart-view-HC" style="position:relative;width:1000px;height:300px;float:left;text-align:center;">
+      <div id="chart-view-HC-SUMMARY" style="width:1000px;height:auto;float:none;"> </div>
+    </div>
+    
+    <form id="frm3" method="post">
+        <table width="100%" style="padding-left:2%; clear: both;">
+          <tr>
+            <td style="width:100px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#F00;border-style:solid;border-radius:20px;background-color:#ed1c24;color:#ffffff;margin-left:5%;">2015 (YTD)</td>
+            <td style="width:150px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;"><input type="text" size="18" placeholder="write here.." id="front_newYear" name="front_newYear" min="0" max="100" value="60" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="width:150px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;"><input type="text" size="18" placeholder="write here.." id="middle_newYear" name="middle_newYear" min="0" max="100" value="40" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="width:150px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;"><input type="text" size="18" placeholder="write here.." id="back_newYear" name="back_newYear" min="0" max="100" value="30" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+          </tr>
+        </table>
+        <table width="100%" style="margin-top: -4px;">
+          <tr>
+            <td style="margin-top:-4%;width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#faa21b;border-style:solid;border-radius:20px;background-color:#faa21b;color:#ffffff;">2014 (CLOSING)</td>
+            <td style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #faa21b;border-bottom:2px solid #faa21b;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;"><input type="text" size="18" placeholder="write here.." id="front_lastYear" name="front_lastYear" min="0" max="100" value="50" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #faa21b;border-bottom:2px solid #faa21b;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;"><input type="text" size="18" placeholder="write here.." id="middle_lastYear" name="middle_lastYear" min="0" max="100" value="30" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #faa21b;border-bottom:2px solid #faa21b;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;"><input type="text" size="18" placeholder="write here.." id="back_lastYear" name="back_lastYear" min="0" max="100" value="20" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+          </tr>
+        </table>
+      </form>
+      <button type="button" name="submit" style="margin-bottom: 30px;" class="submit_button" onClick="javascript:hc_support_chart_draw_load()">Generate Chart</button>
+  </div>
+  <!-- Section Third End --> 
+  
+  <!-- Section Fourth Start -->
+  <div class="main-content" style="width:1000px;float:left;margin:0 auto; clear:both;">
+    <div style="width:1000px;float:left;"> 
+      <!--<table>
+        <tr>
+          <td align="left"><img src="images/start_fill.png" /><img src="images/star_blank.png" /><img src="images/star_blank.png" /></td>
+          <td align="left"><img src="images/star_blank.png" /><img src="images/start_fill.png" /><img src="images/star_blank.png" /></td>
+          <td align="left"><img src="images/star_blank.png" /><img src="images/star_blank.png" /><img src="images/start_fill.png" /></td>
+        </tr>
+        <tr>
+          <td align="left" style="color:#065567;"><strong>FRONT</strong></td>
+          <td align="left" style="color:#065567;"><strong>MIDDLE</strong></td>
+          <td align="left" style="color:#065567;"><strong>BACK</strong></td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top" style="text-align:justify;padding-right:2%;">Employees that spend 50% or more in direct contact with customers driving revenue in either selling activities, relationship management roles, delivery, or providing routine post sale support.</td>
+          <td width="25%" valign="top" style="text-align:justify;padding-right:2%;">Employees that spend less than 50 pct of time in direct contact with customers and do not support our core operating infrastructures (Communications, HR, Finance, Law, Marketing, Product Development, Risk Management)</td>
+          <td width="25%" valign="top" style="text-align:justify;padding-right:2%;">Employees that spend time supporting core infrastructure(O&T, Business Support)</td>
+        </tr>
+      </table>-->
+      <ul>
+        <li style="float: left; list-style-type:none; width: 30%; margin-right: 5%">
+          <div style="width:100%; margin-bottom: 15px;"> <img src="images/star_fill.png" alt=""><img src="images/star_blank.png" alt=""><img src="images/star_blank.png" alt=""> </div>
+          <h2 style="margin-bottom: 5px; font-weight: bold;">FRONT</h2>
+          <p>Employees that spend 50% or more in direct contact with customers driving revenue in either selling activities, relationship management roles, delivery or providing routine post sale support.</p>
+        </li>
+        <li style="float: left; width: 30%; list-style-type:none; margin-right: 5%">
+          <div style="width:100%; margin-bottom: 15px;"> <img src="images/star_blank.png" alt=""><img src="images/star_fill.png" alt=""><img src="images/star_blank.png" alt=""> </div>
+          <h2 style="margin-bottom: 5px; font-weight: bold;">MIDDLE</h2>
+          <p>Employees that spend less than 50 pct of time in direct contact with customers and do not support our core operating infrastructures (Communications, HR, Finance, Law, Marketing, Product Development, Risk Management)</p>
+        </li>
+        <li style="float: left; list-style-type:none; width: 30%;">
+          <div style="width:100%; margin-bottom: 15px;"> <img src="images/star_blank.png" alt=""><img src="images/star_blank.png" alt=""><img src="images/star_fill.png" alt=""> </div>
+          <h2 style="margin-bottom: 5px; font-weight: bold;">BACK</h2>
+          <p>Employees that spend time supporting core infrastructure(O&T, Business Support)</p>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <hr class="hr_dis" style="height:120px;width:2px;background-color:#065567;border:none;margin-top: -6%;position: relative;" />
+    </div>
+  </div>
+  
+  <!-- Section Fourth End --> 
+  
+  <!-- Section Fifth Start -->
+  <div class="main-content" style="width:1000px;float:none;margin:0 auto; clear:both;">
+    <div style="width:1000px;float:left;"> <img src="images/diversity-logo.png" style="position:relative;margin-bottom:-2%;margin-top:2%;"/>
+      <h2 style="font-size:33px;">DIVERSITY</h2>
+      <!--<form id="frm3" method="post">
+        <table width="100%" align="center">
+          <tr>
+            <td style="width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#065567;border-style:solid;border-radius:20px;background-color:#065567;color:#ffffff;z-index:5;position:relative;">GENERATION</td>
+            <td style="width:200px;background-color:#307d99;border-collapse:collapse;border:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;text-align:right;z-index:4;padding-right:4%;">FEMALE</td>
+            <td style="width:200px;background-color:#065567;border-collapse:collapse;border:2px solid #065567;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;text-align:right;z-index:3;padding-right:4%;">MALE</td>
+            <td style="width:200px;background-color:#307d99;border-collapse:collapse;border:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;text-align:right;z-index:2;padding-right:2%;">FEMALE %</td>
+            <td style="width:200px;background-color:#065567;border-collapse:collapse;border:2px solid #065567;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-8%;text-align:right;z-index:1;padding-right:2%;">MALE %</td>
+          </tr>
+        </table>
+        <table width="100%" align="center" style="margin-top:-4px;">
+          <tr>
+            <td style="width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#307d99;border-style:solid;border-radius:20px;background-color:#307d99;color:#ffffff;">Baby Boomer</td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;"><input type="text" size="18" placeholder="write here.." id="bb_female" name="bb_female" style="border:none;width:130px;margin-left:13%;height:25px;text-align:right;"></td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;"><input type="text" size="18" placeholder="write here.." id="bb_male" name="bb_male" style="border:none;width:130px;margin-left:13%;height:25px;text-align:right;"></td>
+            <td id="bb_female_percent" style="width:200px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;"></td>
+            <td id="bb_male_percent" style="width:200px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-8%;"></td>
+          </tr>
+        </table>
+        <table width="100%" align="center" style="margin-top:-4px;">
+          <tr>
+            <td style="margin-top:-4%;width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#065567;border-style:solid;border-radius:20px;background-color:#065567;color:#ffffff;">Generation X</td>
+            <td style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #065567;border-bottom:2px solid #065567;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;"><input type="text" size="18" placeholder="write here.." id="generation_female" name="generation_female" style="border:none;width:130px;margin-left:13%;height:25px;text-align:right;"></td>
+            <td style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #065567;border-bottom:2px solid #065567;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;"><input type="text" size="18" placeholder="write here.." id="generation_male" name="generation_male" style="border:none;width:130px;margin-left:13%;height:25px;text-align:right;"></td>
+            <td id="generation_female_percent" style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #065567;border-bottom:2px solid #065567;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;"></td>
+            <td id="generation_male_percent" style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #065567;border-bottom:2px solid #065567;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-8%;"></td>
+          </tr>
+        </table>
+        <table width="100%" align="center" style="margin-top:-4px;">
+          <tr>
+            <td style="width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#307d99;border-style:solid;border-radius:20px;background-color:#307d99;color:#ffffff;">Millenial</td>
+            <td style="text-align:center;width:200px;background-color:transparent;border-collapse:collapse;border-left:none;border-right:2px solid #307d99;border-radius:0px 20px 20px 0px;position:relative;left:-2%;"><input type="text" size="18" placeholder="write here.." id="millenial_female" name="millenial_female" style="border:none;width:130px;margin-left:13%;height:25px;text-align:right;"></td>
+            <td style="text-align:center;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;"><input type="text" size="18" placeholder="write here.." id="millenial_male" name="millenial_male" style="border:none;width:130px;margin-left:13%;height:25px;text-align:right;"></td>
+            <td id="millenial_female_percent" style="text-align:center;width:200px;background-color:transparent;border-collapse:collapse;border-left:none;border-right:2px solid #307d99;border-radius:0px 20px 20px 0px;position:relative;left:-6%;"></td>
+            <td id="millenial_male_percent" style="text-align:center;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-8%;"></td>
+          </tr>
+        </table>
+        <table width="100%" align="center" style="margin-top:-4px;">
+          <tr>
+            <td style="margin-top:-4%;width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#ed1c24;border-style:solid;border-radius:20px;background-color:#ed1c24;color:#ffffff;">TOTAL</td>
+            <td id="total_female" style="text-align:right;margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #ed1c24;border-bottom:2px solid #ed1c24;border-top:2px solid #ed1c24;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;"></td>
+            <td id="total_male" style="text-align:right;margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #ed1c24;border-bottom:2px solid #ed1c24;border-top:2px solid #ed1c24;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;"></td>
+            <td id="total_female_perct" style="margin-top:-4%;text-align:right;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #ed1c24;border-bottom:2px solid #ed1c24;border-top:2px solid #ed1c24;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;"></td>
+            <td id="total_male_perct" style="margin-top:-4%;text-align:right;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #ed1c24;border-bottom:2px solid #ed1c24;border-top:2px solid #ed1c24;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-8%;"></td>
+          </tr>
+        </table>
+      </form>-->
+      <form id="frm4" method="post">
+        <table width="100%" align="center">
+          <tbody><tr>
+            <td style="width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#065567;border-style:solid;border-radius:20px;background-color:#065567;color:#ffffff;z-index:5;position:relative;">GENERATION</td>
+            <td style="width:200px;background-color:#307d99;border-collapse:collapse;border:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;text-align:right;z-index:4;padding-right:4%;color:#ffffff;">FEMALE</td>
+            <td style="width:200px;background-color:#065567;border-collapse:collapse;border:2px solid #065567;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;text-align:right;z-index:3;padding-right:4%;color:#ffffff;">MALE</td>
+            <td style="width:200px;background-color:#307d99;border-collapse:collapse;border:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;text-align:right;z-index:2;padding-right:2%;color:#ffffff;">FEMALE %</td>
+            <td style="width:200px;background-color:#065567;border-collapse:collapse;border:2px solid #065567;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-8%;text-align:right;z-index:1;padding-right:2%;color:#ffffff;">MALE %</td>
+          </tr>
+        </tbody></table>
+        <table width="100%" align="center" style="margin-top:-4px;">
+          <tbody><tr>
+            <td style="width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#307d99;border-style:solid;border-radius:20px;background-color:#307d99;color:#ffffff;">Baby Boomer</td>
+            <td style="width: 214px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;text-align: right;"><input type="text" size="18" placeholder="write here.." id="bb_female" name="bb_female" style="border:none;width: 20%;margin-right: 19%;height:25px;text-align:right;"></td>
+            <td style="width: 215px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;text-align: right;"><input type="text" size="18" placeholder="write here.." id="bb_male" name="bb_male" style="border:none;width: 20%;margin-right: 19%;height:25px;text-align:right;"></td>
+            <td id="bb_female_percent" style="width: 155px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;text-align: right;padding-right: 5%;"></td>
+            <td id="bb_male_percent" style="width: 167px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-8%;text-align: right;padding-right: 3%;"></td>
+          </tr>
+        </tbody></table>
+        <table width="100%" align="center" style="margin-top:-4px;">
+          <tbody><tr>
+            <td style="margin-top:-4%;width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#065567;border-style:solid;border-radius:20px;background-color:#065567;color:#ffffff;">Generation X</td>
+            <td style="width: 214px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;text-align: right;"><input type="text" size="18" placeholder="write here.." id="generation_female" name="generation_female" style="border:none;width: 20%;margin-right: 19%;height:25px;text-align:right;"></td>
+            <td style="width: 215px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;text-align: right;   "><input type="text" size="18" placeholder="write here.." id="generation_male" name="generation_male" style="border:none;width: 20%;margin-right: 19%;height:25px;text-align:right;"></td>
+            <td id="generation_female_percent" style="width: 155px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;text-align: right;padding-right: 5%;"></td>
+            <td id="generation_male_percent" style="width: 167px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-8%;text-align: right;padding-right: 3%;"></td>
+          </tr>
+        </tbody></table>
+        <table width="100%" align="center" style="margin-top:-4px;">
+          <tbody><tr>
+            <td style="width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#307d99;border-style:solid;border-radius:20px;background-color:#307d99;color:#ffffff;">Millenial</td>
+            <td style="width: 214px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;text-align: right;"><input type="text" size="18" placeholder="write here.." id="millenial_female" name="millenial_female" style="border:none;width: 20%;margin-right: 19%;height:25px;text-align:right;"></td>
+            <td style="width: 215px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;text-align: right;   "><input type="text" size="18" placeholder="write here.." id="millenial_male" name="millenial_male" style="border:none;width: 20%;margin-right: 19%;height:25px;text-align:right;"></td>
+            <td id="millenial_female_percent" style="width: 155px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;text-align: right;padding-right: 5%;"></td>
+            <td id="millenial_male_percent" style="width: 167px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-8%;text-align: right;padding-right: 3%;"></td>
+          </tr>
+        </tbody></table>
+        <table width="100%" align="center" style="margin-top:-4px;">
+          <tbody><tr>
+            <td style="margin-top:-4%;width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#ed1c24;border-style:solid;border-radius:20px;background-color:#ed1c24;color:#ffffff;">TOTAL</td>
+            <td id="total_female" style="text-align:right;margin-top:-4%;width: 162px;background-color:transparent;border-collapse:collapse;border-right:2px solid #ed1c24;border-bottom:2px solid #ed1c24;border-top:2px solid #ed1c24;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;padding-right: 4%;"></td>
+            <td id="total_male" style="text-align:right;margin-top:-4%;width: 164px;background-color:transparent;border-collapse:collapse;border-right:2px solid #ed1c24;border-bottom:2px solid #ed1c24;border-top:2px solid #ed1c24;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;padding-right: 4%;"></td>
+            <td id="total_female_perct" style="margin-top:-4%;text-align:right;width: 160px;background-color:transparent;border-collapse:collapse;border-right:2px solid #ed1c24;border-bottom:2px solid #ed1c24;border-top:2px solid #ed1c24;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;padding-right: 4%;"></td>
+            <td id="total_male_perct" style="margin-top:-4%;text-align:right;width: 160px;background-color:transparent;border-collapse:collapse;border-right:2px solid #ed1c24;border-bottom:2px solid #ed1c24;border-top:2px solid #ed1c24;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-8%;padding-right: 3%;"></td>
+          </tr>
+        </tbody></table>
+      </form>
+      <button type="button" name="submit" style="margin-bottom: 30px;" class="submit_button" onClick="javascript:diversity_chart_draw()">Generate Total</button>
+    </div>
+  </div>
+  <!-- Section Fifth Start --> 
+  
+  <!-- Section Sixth Start -->
+  <div class="main-content" style="width:1000px;float:none;margin:0 auto; clear:both;">
+    <div style="width:1000px; margin: 20px 0; display: inline-block;">
+    	<ul>
+            <li style="float: left; list-style-type:none; width: 30%; margin-right: 5%">
+              <div style="width:100%; margin-bottom: 10px;"> <img src="images/yellow-star.png" /> </div>
+              <h2 style="margin: 0 0 5px 0; font-weight: bold;">BABY BOOMER</h2>
+              <p style="margin:0; color:#065567;font-weight:normal;font-size:20px;">1946 - 1964</p>
+            </li>
+            <li style="float: left; width: 30%; list-style-type:none; margin-right: 5%">
+              <div style="width:100%; margin-bottom: 10px;"> <img src="images/yellow-star.png" /></div>
+              <h2 style="margin: 0 0 5px 0; font-weight: bold;">GENERATION X</h2>
+              <p style="margin:0; color:#065567;font-weight:normal;font-size:20px;">1965 - 1979</p>
+            </li>
+            <li style="float: left; list-style-type:none; width: 30%;">
+              <div style="width:100%; margin-bottom: 10px;"> <img src="images/yellow-star.png" /> </div>
+              <h2 style="margin: 0 0 5px 0; font-weight: bold;">MILLENIAL</h2>
+              <p style="margin:0; color:#065567;font-weight:normal;font-size:20px;">1980 - 2000</p>
+            </li>
+       </ul>
+    
+     <!-- <table align="center" width="500px">
+        <tr>
+          <td align="center"><img src="images/yellow-star.png" /></td>
+          <td align="center"><img src="images/yellow-star.png" /></td>
+          <td align="center"><img src="images/yellow-star.png" /></td>
+        </tr>
+        <tr>
+          <td align="center" style="color:#065567;font-weight:normal;font-size:20px;">BABY BOOMER</td>
+          <td align="center" style="color:#065567;font-weight:normal;font-size:20px;">GENERATION X</td>
+          <td align="center" style="color:#065567;font-weight:normal;font-size:20px;">MILLENIAL</td>
+        </tr>
+        <tr>
+          <td align="center" style="color:#065567;font-weight:normal;font-size:20px;">1946 - 1964</td>
+          <td align="center" style="color:#065567;font-weight:normal;font-size:20px;">1965 - 1979</td>
+          <td align="center" style="color:#065567;font-weight:normal;font-size:20px;">1980 - 2000</td>
+        </tr>
+      </table>-->
+    </div>
+    <hr class="hr_dis" style="height:120px;width:2px;background-color:#065567;border:none;margin-top: 3%;position: relative;" />
+  </div>
+  <!-- Section Sixth End --> 
+  
+  <!-- Section Seven Start --> 
+  <!-- DIVERSITY BY ORIGIN -->
+  <div class="main-content" style="width: 1000px;height: auto;margin: 0 auto;text-align: center; clear:both;">
+    <h2 style="font-size:33px;">DIVERSITY BY ORIGIN</h2>
+    <div class="form" id="form_layout">
+      <form id="frm7" method="post">
+        <table>
+          <tr>
+            <td>AMERICA</td>
+            <td><input type="number" size="15" value="8" name="america_diversity" id="america_diversity" min="0" max="100" /></td>
+          </tr>
+          <tr>
+            <td>EUROPE</td>
+            <td><input type="number" size="15" value="18" name="europe_diversity" id="europe_diversity" min="0" max="100" /></td>
+          </tr>
+          <tr>
+            <td>MENA</td>
+            <td><input type="number" size="15" value="20" name="mena_diversity" id="mena_diversity" min="0" max="100" /></td>
+          </tr>
+          <tr>
+            <td>AFRICA</td>
+            <td><input type="number" size="15" value="23" name="africa_diversity" id="africa_diversity" min="0" max="100" /></td>
+          </tr>
+          <tr>
+            <td>ASIA PACIFIC</td>
+            <td><input type="number" size="15" value="31" name="asia_diversity" id="asia_diversity" min="0" max="100" /></td>
+          </tr>
+        </table>
+      </form>
+      <button type="submit" name="submit" style="margin-bottom: 30px;" onClick="javascript:diversity_origin_chart_load()" class="submit_button">Generate Diversity-Chart</button>
+    </div>
+    <hr class="hr_dis" style="height:120px;width:2px;background-color:#065567;border:none;margin-top: 2%;position: relative;" />
+    <div id="chart-view">
+      <div style="position:relative;width:500px;height:300px;" id="diversity_origin_chartContainer"> </div>
+      <div class="chart1_img" style="position: absolute;top: 56%;left: 44%;margin-top: -57px;"><img src="images/diversity-by-origin.png" width="100" height="98" /></div>
+    </div>
+    <hr class="hr_dis" style="height:120px;width:2px;background-color:#065567;border:none;margin-top: 0;position: relative;">
+  </div>
+  <!-- Section Seven End --> 
+  
+  <!-- Section Eight Start --> 
+  
+  <!-- YTD MEA ATTRITION Vs. MCWW -->
+  <div class="main-content" style="width:1000px;float:none;margin:0 auto; clear:both;">
+    <div style="width:1000px;float:left;">
+      <h2 style="font-size:33px;">YTD MEA ATTRITION Vs. MCWW</h2>
+	  
+	  <div id="ytd_container" style="margin-bottom: 20px;  width: 100%;  float: left; min-height:300px;">
+	  
+	  
+	  
+	  </div>
+	  <div style="clear:both;"></div>
+      <div class="preview_only"><img src="images/voluntary.png"   /></div>
+	  <div class="user_input_area">
+      <form id="frm5" method="post">
+        <table width="100%">
+          <tr>
+            <td style="width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#F00;border-style:solid;border-radius:20px;background-color:#ed1c24;color:#ffffff;"></td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;">MEA Jan 2014</td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;">MEA Jan 2015</td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;">MCWW Jan 2014</td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-8%;">MCWW Jan 2015</td>
+          </tr>
+          <tr>
+            <td style="margin-top:-4%;width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#faa21b;border-style:solid;border-radius:20px;background-color:#faa21b;color:#ffffff;">VOLUNTARY</td>
+            <td style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #faa21b;border-bottom:2px solid #faa21b;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;"><input type="text" size="18" placeholder="write here.." value="0.6" id="vol_mea_jan_14" name="vol_mea_jan_14" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #faa21b;border-bottom:2px solid #faa21b;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;"><input type="text" size="18" placeholder="write here.." value="0.4" id="vol_mea_jan_15" name="vol_mea_jan_15" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #faa21b;border-bottom:2px solid #faa21b;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;"><input type="text" size="18" placeholder="write here.." value="0.4" id="vol_mcww_jan_14" name="vol_mcww_jan_14" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #faa21b;border-bottom:2px solid #faa21b;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-8%;"><input type="text" size="18" placeholder="write here.." value="0.5" id="vol_mcww_jan_15" name="vol_mcww_jan_15" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+          </tr>
+          <tr>
+            <td style="width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#F00;border-style:solid;border-radius:20px;background-color:#ed1c24;color:#ffffff;">INVOLUNTARY</td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;"><input type="text" size="18" placeholder="write here.." value="0.6" id="invol_mea_jan_14" name="invol_mea_jan_14" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;"><input type="text" size="18" placeholder="write here.." value="0" id="invol_mea_jan_15" name="invol_mea_jan_15" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;"><input type="text" size="18" placeholder="write here.." value="0.3" id="invol_mcww_jan_14" name="invol_mcww_jan_14" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-8%;"><input type="text" size="18" placeholder="write here.." value="1" id="invol_mcww_jan_15" name="invol_mcww_jan_15" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+          </tr>
+        </table>
+      </form>
+      <button type="submit" name="submit" style="margin-bottom: 30px;" onClick="javascript:ytd_mea_chart_load()" class="submit_button">Generate Chart</button>
+	  </div>
+	   <hr class="hr_dis" style="height:120px;width:2px;background-color:#065567;border:none;margin-top: 2%;position: relative;" />
+    </div>
+  </div>
+  <!-- Section Eight End -->
+  
+  
+  <!-- Section Nine Start --> 
+  
+  <!-- CAREER MOVES SUMMARY YTD -->
+  <div class="main-content" style="width:1000px;float:none;margin:0 auto; clear:both;">
+    <div style="width:1000px;float:left;">
+      <h2 style="font-size:33px;">CAREER MOVES SUMMARY YTD</h2>
+	  
+	  <div id="carrer_move_container" style="margin-bottom: 20px;  width: 100%;  float: left; min-height:300px;">
+	  
+	  </div>
+	  <div style="clear:both;"></div>
+      
+      <div class="preview_only"><img src="images/year.png"   /></div>
+	  <div class="user_input_area">
+      <form id="frm9" method="post">
+        <table width="100%">
+          <tr>
+            <td style="width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#F00;border-style:solid;border-radius:20px;background-color:#ed1c24;color:#ffffff;"></td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;">SMART MOVE</td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;">UPWARD</td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;">TEMP ASSIGNMENT</td>
+          </tr>
+          <tr>
+            <td style="margin-top:-4%;width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#faa21b;border-style:solid;border-radius:20px;background-color:#faa21b;color:#ffffff;">2015 (YTD)</td>
+            <td style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #faa21b;border-bottom:2px solid #faa21b;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;"><input type="text" size="18" placeholder="write here.." value="5" id="smart_move_2015" name="smart_move_2015" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #faa21b;border-bottom:2px solid #faa21b;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;"><input type="text" size="18" placeholder="write here.." value="2" id="upward_2015" name="upward_2015" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="margin-top:-4%;width:200px;background-color:transparent;border-collapse:collapse;border-right:2px solid #faa21b;border-bottom:2px solid #faa21b;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;"><input type="text" size="18" placeholder="write here.." value="0" id="temp_2015" name="temp_2015" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+          </tr>
+          <tr>
+            <td style="width:150px;text-align:center;height:25px;border-collapse:collapse;border:2px;border-color:#F00;border-style:solid;border-radius:20px;background-color:#ed1c24;color:#ffffff;">2014 (YTD)</td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;"><input type="text" size="18" placeholder="write here.." value="0" id="smart_move_2014" name="smart_move_2014" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;"><input type="text" size="18" placeholder="write here.." value="1" id="upward_2014" name="upward_2014" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border:2px solid red;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-6%;"><input type="text" size="18" placeholder="write here.." value="0" id="temp_2014" name="temp_2014" min="0" max="100" style="border:none;width:130px;margin-left:13%;height:25px;"></td>
+          </tr>
+        </table>
+      </form>
+      <button type="submit" name="submit" style="margin-bottom: 30px;" onClick="javascript:career_move_chart_load()" class="submit_button">Generate Chart</button>
+	  </div>
+    </div>
+  </div>
+  <!-- Section Nine End -->
+  
+  
+  <!-- Section Tenth Start -->
+  <div class="main-content" style="width:1000px;float:none;margin:0 auto; clear:both;">
+	   <hr class="hr_dis" style="height:120px;width:2px;background-color:#065567;border:none;margin-top: 2%;position: relative;" />
+      <div style="font-size: 30px;color: #307d99;margin-bottom: 20px;">JAN 2015 MOVES</div>
+      <form id="frm10" method="post">
+        <table width="100%" align="center">
+          <tr>
+            <td style="width:254px;text-align: left;height:25px;border-collapse:collapse;border:2px;border-color:#065567;border-style:solid;border-radius:20px;background-color:#065567;color:#ffffff;z-index:5;position:relative;padding-left: 2%; ">NAME</td>
+            <td style="width: 320px;background-color:#307d99;border-collapse:collapse;border:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left: -2%;text-align: left;z-index:4;padding-left: 28px;color: #FFFFFF; ">PREVIOUS UNIT</td>
+            <td style="width:auto;background-color:#065567;border-collapse:collapse;border:2px solid #065567;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;text-align: left;z-index:3;padding-right: 12%;padding-left: 3%;color: #FFFFFF; ">New UNIT</td>
+          </tr>
+        </table>
+        <table width="100%" align="center" style="margin-top:-4px;">
+          <tr>
+           <td style="width: 146px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:2px solid #307d99;border-radius:20px 20px 20px 20px;position:relative;"><input type="text" size="18" placeholder="write here.." id="move[name][]" name="move[name][]" style="border:none;width: 85%;margin-left: 0%;height:25px;text-align: left;"></td>
+            <td style="width: 192px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-2%;"><input type="text" size="18" placeholder="write here.." id="move[prev_unit][]" name="move[prev_unit][]" style="border:none;width:85%;margin-left: 3%;height:25px;text-align: left;"></td>
+            <td style="width:200px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left:-4%;"><input type="text" size="18" placeholder="write here.." id="move[new_unit][]" name="move[new_unit][]" style="border:none;width:85%;margin-left: 3%;height:25px;text-align: left;"></td>
+          </tr>
+        </table>
+      </form>
+	  <div class="user_input_area">
+      <button type="button" name="submit" style="margin-bottom: 30px;float: left;margin-right: 20px;" class="submit_button" onClick="javascript:add_more('frm10')">Add More</button>
+      <button type="button" name="submit" style="margin-bottom: 30px;float: left;margin-right: 20px;" class="submit_button" onClick="javascript:remove_last('frm10')">Remove Last</button>
+	  </div>
+    </div>
+  <!-- Section Tenth Start --> 
+  
+   
+  
+  <!-- Section Eleventh Start -->
+  <div class="main-content" style="width:1000px;float:none;margin:0 auto; clear:both;">
+  
+	   <hr class="hr_dis" style="height:120px;width:2px;background-color:#065567;border:none;margin-top: 2%;position: relative;" />
+    <div style="width:1000px;float:left;"> <img src="images/shake-hand.png" style="position:relative;margin-bottom:-2%;margin-top:2%;"/>
+      <h2 style="font-size:33px; margin-bottom:5px;">NEW HIRES</h2>
+      <div style="font-size: 18px;color: #065567;margin-bottom: 20px;">JAN 2015 MEA NEW HIRES (YTD: <span id="new_hire_count">1</span> NEW HIRES)</div>
+      <form id="frm11" method="post">
+        <table width="100%" align="center">
+          <tbody><tr>
+            <td style="width: 200px;text-align: left;height:25px;border-collapse:collapse;border:2px;border-color:#065567;border-style:solid;border-radius:20px;background-color:#065567;color:#ffffff;z-index:5;position:relative;padding-left: 2%;">NAME</td>
+            <td style="width: 130px;background-color:#307d99;border-collapse:collapse;border:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left: -2%;text-align: left;z-index:4;padding-left: 28px;color: #FFFFFF;">BU</td>
+            <td style="width: 255px;background-color: #065567;border-collapse:collapse;border: 2px solid #065567;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left: -4%;text-align: left;z-index: 3;padding-left: 28px;color: #FFFFFF;">POSITION TITLE</td>
+            <td style="width: auto;background-color: #307d99;border-collapse:collapse;border: 2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left: -6%;text-align: left;z-index: 2;padding-left: 3%;color:#ffffff;">PHYSICAL WORK LOCATION</td>
+          </tr>
+        </tbody></table>
+        <table width="100%" align="center" style="margin-top:-4px;">
+          <tbody><tr>
+           <td style="width: 112px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:2px solid #307d99;border-radius:20px 20px 20px 20px;position:relative;z-index: 5;padding-left: 0%;"><input type="text" size="18" placeholder="write here.." id="hire[name][]" name="hire[name][]" style="border:none;width: 85%;margin-left: 3%;height:25px;text-align: left;"></td>
+            <td style="width: 66px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left: -2%;z-index: 4;padding-left: 2%;"><input type="text" size="18" placeholder="write here.." id="hire[bu][]" name="hire[bu][]" style="border:none;width: 85%;margin-left: 1%;height:25px;text-align: left;"></td>
+            <td style="width: 138px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left: -3%;"><input type="text" size="18" placeholder="write here.." id="hire[pt][]" name="hire[pt][]" style="border:none;width: 85%;margin-left: 0;height:25px;text-align: left;"></td>
+            <td style="width: 170px;background-color:transparent;border-collapse:collapse;border-bottom:2px solid #307d99;border-right:2px solid #307d99;border-left:none;border-radius:0px 20px 20px 0px;position:relative;left: -6%;"><input type="text" size="18" placeholder="write here.." id="hire[pwl][]" name="hire[pwl][]" style="border:none;width: 85%;margin-left: 7%;height:25px;text-align: left;"></td>
+          </tr>
+        </tbody></table>
+      </form>
+	  <div class="user_input_area">
+      <button type="button" name="submit" style="margin-bottom: 30px;float: left;margin-right: 20px;" class="submit_button" onClick="javascript:add_more('frm11', '1')">Add More</button>
+      <button type="button" name="submit" style="margin-bottom: 30px;float: left;margin-right: 20px;" class="submit_button" onClick="javascript:remove_last('frm11', '1')">Remove Last</button>
+	  </div>
+    </div>
+  </div>
+  <!-- Section Eleventh Start --> 
+  
+  
+  
+  
+  
+  
+  
+  <div style="width:1000px; height:50px; float: right;">
+    <button id="preview" onclick="">Preview</button>
+    <button id="back" onclick="">Back</button>
+    <button id="download">Download</button>
+  </div>
+</div>
+<script type="text/javascript" src="jquery-2.1.3.min.js"></script> 
+<script type="text/javascript" src="canvasjs.min.js"></script> 
+<script type="text/javascript" src="jquery.canvasjs.min.js"></script> 
+<script type="text/javascript" src="jspdf.js"></script> 
+<script type="text/javascript" src="jspdf.plugin.addimage.js"></script> 
+<script type="text/javascript" src="jspdf.plugin.from_html.js"></script> 
+<script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script> 
+<script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script> 
+<!--first chart*/--> 
+<script type="text/javascript">
+	
+	//document.getElementById("submit").onclick = draw_chart;
+	function draw_chart() {
+		var hr = parseInt(document.getElementById('hr_detail').value);
+		var lfi = parseInt(document.getElementById('lfi_detail').value);
+		var fi = parseInt(document.getElementById('finance_detail').value);
+		var ot = parseInt(document.getElementById('ot_detail').value);
+		var gps = parseInt(document.getElementById('gps_detail').value);
+		var imk = parseInt(document.getElementById('imk_detail').value);
+		
+		var toatl_chart = parseInt(hr+lfi+fi+ot+gps+imk);
+		if(toatl_chart != 100)
+		{
+			alert("please check total is not equal to 100%");
+			return false;
+		}
+		else 
+		{
+	var chart = new CanvasJS.Chart("chartContainer",
+	{
+		title:{
+			text: ""
+		},
+		exportFileName: "Pie Chart",
+		exportEnabled: true,
+                animationEnabled: true,
+		legend:{
+			verticalAlign: "bottom",
+			horizontalAlign: "center"
+		},
+		data: [
+		{       
+			type: "doughnut",
+			//showInLegend: true,
+			//toolTipContent: "{legendText}: <strong>{y}%</strong>",
+			indexLabel: "{label} {y}%",
+			dataPoints: [
+				{  y: hr, label: "HR", color: "#307d99" },
+				{  y: lfi, label: "LFI", color: "#b02d25" },
+				{  y: fi, label: "FINANCE", color: "#faa21b" },
+				{  y: ot, label: "O&T", color: "#065567"},
+				{  y: gps, label: "GP&S", color: "#ed1c24" },
+				{  y: imk, label: "IMK", color: "#fec00f"}
+			]
+	}
+	]
+	});
+	chart.render();}
+}
+   
+	</script> 
+<script>
+	function onload_firstchart() {
+		var hr = document.getElementById('hr_detail').value;
+var lfi = document.getElementById('lfi_detail').value;
+var fi = document.getElementById('finance_detail').value;
+var ot = document.getElementById('ot_detail').value;
+var gps = document.getElementById('gps_detail').value;
+var imk = document.getElementById('imk_detail').value;
+	var chart = new CanvasJS.Chart("chartContainer",
+	{
+		title:{
+			text: ""
+		},
+		exportFileName: "Pie Chart",
+		exportEnabled: true,
+                animationEnabled: true,
+		legend:{
+			verticalAlign: "bottom",
+			horizontalAlign: "center"
+		},
+		data: [
+		{       
+			type: "doughnut",
+			indexLabel: "{label} {y}%",
+			dataPoints: [
+				{  y: 4, label: "HR", color: "#307d99" },
+				{  y: 5, label: "LFI", color: "#b02d25" },
+				{  y: 7, label: "FINANCE", color: "#faa21b" },
+				{  y: 11, label: "O&T", color: "#065567"},
+				{  y: 24, label: "GP&S", color: "#ed1c24" },			
+				{  y: 49, label: "IMK", color: "#fec00f"}
+			]
+	}
+	]
+	});
+	chart.render();
+}
+   </script> 
+
+<!--second chart--> 
+<script type="text/javascript">
+  function draw_chart_location() {
+	var ua = parseInt(document.getElementById('uae').value);
+   var sa = parseInt(document.getElementById('sa').value);
+   var ni = parseInt(document.getElementById('nigeria').value);
+   var eg = parseInt(document.getElementById('egypt').value);
+   var ke = parseInt(document.getElementById('kenya').value);
+   var qa = parseInt(document.getElementById('qatar').value);
+   var mo = parseInt(document.getElementById('morocco').value);
+   var ksa = parseInt(document.getElementById('ksa').value);
+   var pak = parseInt(document.getElementById('pak').value);
+   var jrdn = parseInt(document.getElementById('jordan').value);
+   var lebn = parseInt(document.getElementById('lebanon').value);
+   
+   var total = parseInt(ua+sa+ni+eg+ke+qa+mo+ksa+pak+jrdn+lebn);
+   	  
+	var ua_per = (((document.getElementById('uae').value)/total)*100);
+   var sa_per = (((document.getElementById('sa').value)/total)*100);
+   var ni_per = (((document.getElementById('nigeria').value)/total)*100);
+   var eg_per = (((document.getElementById('egypt').value)/total)*100);
+   var ke_per = (((document.getElementById('kenya').value)/total)*100);
+   var qa_per = (((document.getElementById('qatar').value)/total)*100);
+   var mo_per = (((document.getElementById('morocco').value)/total)*100);
+   var ksa_per = (((document.getElementById('ksa').value)/total)*100);
+   var pak_per = (((document.getElementById('pak').value)/total)*100);
+   var jrdn_per = (((document.getElementById('jordan').value)/total)*100);
+   var lebn_per = (((document.getElementById('lebanon').value)/total)*100);
+   
+    var chart = new CanvasJS.Chart("chart-view-2-inner",
+    {
+      theme: 'theme2',
+	  height: 200,
+      title:{
+        text: ""             
+
+      },
+      animationEnabled: true,
+            axisY: {
+                tickThickness: 0,
+                lineThickness: 0,
+                valueFormatString: " ",
+                gridThickness: 0                    
+            },
+            axisX: {
+                tickThickness: 0,
+                lineThickness: 0,
+                valueFormatString: " ",
+				gridThickness: 0
+            },
+			
+      data:[
+      {              	        
+        type: "stackedBar100",
+		indexLabelFontSize: 15,
+		
+		
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#faa21b",
+        dataPoints: [
+        {y: ua_per, indexLabel: "'"+ua+"'" }
+        ]
+      },
+      
+      {        
+        type: "stackedBar100",
+		indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#ed1c24",
+        dataPoints: [
+        {y: sa_per, indexLabel: "'"+sa+"'" }
+        ]
+      },
+      {        
+        type: "stackedBar100",
+		indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#065567",
+        dataPoints: [
+        {y: ni_per, indexLabel: "'"+ni+"'" }
+        ]
+      },
+      
+      {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#fec00f",
+        dataPoints: [
+        {y: eg_per, indexLabel: "'"+eg+"'" }
+        ]
+      },
+      {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#b02d25", 
+        dataPoints: [
+        {y: ke_per, indexLabel: "'"+ke+"'" }
+        ]
+      },
+      
+      {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#307d99",
+        dataPoints: [
+        {y: qa_per, indexLabel: "'"+qa+"'" }
+        ]
+      },
+
+      {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#da1c5c",
+        dataPoints: [
+        {y: mo_per, indexLabel: "'"+mo+"'" }
+        ]
+      },
+
+      {        
+        type: "stackedBar100",
+       indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#754d29", 
+        dataPoints: [
+        {y: ksa_per, indexLabel: "'"+ksa+"'" }
+        ]
+      },
+	  
+	  {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#808285", 
+        dataPoints: [
+        {y: pak_per, indexLabel: "'"+pak+"'" }
+        ]
+      },
+	  
+	  {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#2bb673",
+        dataPoints: [
+        {y: jrdn_per, indexLabel: "'"+jrdn+"'" }
+        ]
+      },
+	  
+	  {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#92278f",
+        dataPoints: [
+        {y: lebn_per, indexLabel: "'"+lebn+"'" }
+        ]
+      }
+      
+      
+      ]
+
+    });
+
+chart.render();
+}
+</script> 
+<script type="text/javascript">
+  function onload_secondchart() {
+	  var chart = new CanvasJS.Chart("chart-view-2-inner",
+    {
+      theme: 'theme2',
+	  height: 150,
+      title:{
+        text: ""             
+
+      },
+      animationEnabled: true,
+            axisY: {
+                tickThickness: 0,
+                lineThickness: 0,
+                valueFormatString: " ",
+                gridThickness: 0                    
+            },
+            axisX: {
+                tickThickness: 0,
+                lineThickness: 0,
+                valueFormatString: " ",
+				gridThickness: 0
+            },
+			
+      data:[
+      
+	  {        
+        type: "stackedBar100",
+		indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#faa21b",
+        dataPoints: [
+        {y: 150, indexLabel: "150" }
+        ]
+      },
+	  
+	  {        
+        type: "stackedBar100",
+		indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#ed1c24",
+        dataPoints: [
+        {y: 200, indexLabel: "200" }
+        ]
+      },
+	  
+      {        
+        type: "stackedBar100",
+		indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#065567",
+        dataPoints: [
+        {y: 50, indexLabel: "50" }
+        ]
+      },
+      
+      {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#fec00f",
+        dataPoints: [
+        {y: 40, indexLabel: "40" }
+        ]
+      },
+      {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#b02d25", 
+        dataPoints: [
+        {y: 40, indexLabel: "40" }
+        ]
+      },
+      
+      {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#307d99",
+        dataPoints: [
+        {y: 30, indexLabel: "30" }
+        ]
+      },
+
+      {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#da1c5c",
+        dataPoints: [
+        {y: 50, indexLabel: "50" }
+        ]
+      },
+
+      {        
+        type: "stackedBar100",
+       indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#754d29", 
+        dataPoints: [
+        {y: 30, indexLabel: "30" }
+        ]
+      },
+	  
+	  {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#808285", 
+        dataPoints: [
+        {y: 20, indexLabel: "20" }
+        ]
+      },
+	  
+	  {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#2bb673",
+        dataPoints: [
+        {y: 40, indexLabel: "40" }
+        ]
+      },
+	  
+	  {        
+        type: "stackedBar100",
+        indexLabelFontSize: 15,
+                toolTipContent: "<span style='\"'color: {color};'\"'><strong>{indexLabel}</strong></span><span style='\"'font-size: 15px; color:peru '\"'>{y}</span>",
+				
+                indexLabelPlacement: "inside",
+                indexLabelFontColor: "white",
+                indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+                color: "#92278f",
+        dataPoints: [
+        {y: 30, indexLabel: "30" }
+        ]
+      }
+      
+      
+      ]
+
+    });
+
+chart.render();
+}
+</script> 
+<!--second chart end--> 
+
+<!--third HC Support chart start--> 
+<script type="text/javascript">
+	function hc_support_chart_draw() {
+		var fny = parseInt(document.getElementById('front_newYear').value);
+  		var mny = parseInt(document.getElementById('middle_newYear').value);
+   		var bny = parseInt(document.getElementById('back_newYear').value);
+   		var fly = parseInt(document.getElementById('front_lastYear').value);
+   		var mly = parseInt(document.getElementById('middle_lastYear').value);
+   		var bly = parseInt(document.getElementById('back_lastYear').value);
+		var chart = new CanvasJS.Chart("chart-view-HC-SUMMARY",
+		{
+			theme: "theme",
+			width:700,
+			height:300,
+            animationEnabled: true,
+			title:{
+				text: ""
+			},
+			toolTip: {
+				shared: true
+			},			
+			
+			axisY: {
+                tickThickness: 0,
+                lineThickness: 0,
+                valueFormatString: " ",
+                gridThickness: 0                    
+            },
+			axisY2: {
+				tickThickness: 0,
+                lineThickness: 0,
+                valueFormatString: " ",
+                gridThickness: 0   
+			},
+            axisX: {
+                /*tickThickness: 0,
+                lineThickness: 0,*/
+                valueFormatString: " ",
+				gridThickness: 0,
+				lineColor: "#065567",
+				lineThickness: 3
+            },
+
+						data: [ 
+			{
+				type: "column",
+				color: "#ed1c24",
+				indexLabelFontSize: 15,
+				indexLabelPlacement: "inside",
+				indexLabelFontColor: "white", 
+				indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+				dataPoints:[
+				{label: "Front", y: fny, x: 10, indexLabel:"'"+fny+"'"},
+				{label: "Middle", y: mny, x: 200, indexLabel:"'"+mny+"'"},
+				{label: "Back", y: bny, x: 400, indexLabel:"'"+bny+"'"}
+				]
+			},
+			{
+				type: "column",	
+				color: "#faa21b",
+				indexLabelFontSize: 15,
+				indexLabelPlacement: "inside",
+				indexLabelFontColor: "white",
+				indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+				dataPoints:[
+				{label: "Front", y: fly, x: 12, indexLabel:"'"+fly+"'"},
+				{label: "Middle", y: mly, x: 202, indexLabel:"'"+mly+"'"},
+				{label: "Back", y: bly, x: 402, indexLabel:"'"+bly+"'"}
+				]
+			}
+			
+			],
+          legend:{
+            cursor:"pointer",
+            itemclick: function(e){
+              if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+              	e.dataSeries.visible = false;
+              }
+              else {
+                e.dataSeries.visible = true;
+              }
+            	chart.render();
+            }
+          },
+        });
+
+chart.render();
+}
+</script> 
+<script type="text/javascript">
+	function onload_hc_support_chart_draw() {
+		var fny = parseInt(document.getElementById('front_newYear').value);
+  		var mny = parseInt(document.getElementById('middle_newYear').value);
+   		var bny = parseInt(document.getElementById('back_newYear').value);
+   		var fly = parseInt(document.getElementById('front_lastYear').value);
+   		var mly = parseInt(document.getElementById('middle_lastYear').value);
+   		var bly = parseInt(document.getElementById('back_lastYear').value);
+		var chart = new CanvasJS.Chart("chart-view-HC-SUMMARY",
+		{
+			theme: "theme",
+			width:700,
+			height:300,
+            animationEnabled: true,
+			title:{
+				text: ""
+			},
+			toolTip: {
+				shared: true
+			},			
+			
+			axisY: {
+                tickThickness: 0,
+                lineThickness: 0,
+                valueFormatString: " ",
+                gridThickness: 0                    
+            },
+			axisY2: {
+				tickThickness: 0,
+                lineThickness: 0,
+                valueFormatString: " ",
+                gridThickness: 0   
+			},
+            axisX: {
+                /*tickThickness: 0,
+                lineThickness: 0,*/
+                valueFormatString: " ",
+				gridThickness: 0,
+				lineColor: "#065567",
+				lineThickness: 3
+            },
+
+						data: [ 
+			{
+				type: "column",
+				color: "#ed1c24", 
+				indexLabelFontSize: 15,
+				indexLabelPlacement: "inside",
+				indexLabelFontColor: "white",
+				indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+				dataPoints:[
+				{label: "Front", y: 60, x: 10, indexLabel:"60"},
+				{label: "Middle", y: 40, x: 200, indexLabel:"40"},
+				{label: "Back", y: 30, x: 400, indexLabel:"30"}
+				]
+			},
+			{
+				type: "column",	
+				color: "#faa21b",
+				indexLabelFontSize: 15,
+				indexLabelPlacement: "inside",
+				indexLabelFontColor: "white",
+				indexLabelFontWeight: 300,
+                indexLabelFontFamily: "Verdana",
+				dataPoints:[
+				{label: "Front", y: 50, x: 12, indexLabel:"50"},
+				{label: "Middle", y: 35, x: 202, indexLabel:"35"},
+				{label: "Back", y: 20, x: 402, indexLabel:"20"}
+				]
+			}
+			
+			],
+          legend:{
+            cursor:"pointer",
+            itemclick: function(e){
+              if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+              	e.dataSeries.visible = false;
+              }
+              else {
+                e.dataSeries.visible = true;
+              }
+            	chart.render();
+            }
+          },
+        });
+
+chart.render();
+}
+</script> 
+
+<!-- DIVERSITY --> 
+<script>
+function diversity_chart_draw() {
+		var bbf = parseInt(document.getElementById('bb_female').value);
+  		var bbm = parseInt(document.getElementById('bb_male').value);
+   		var gf = parseInt(document.getElementById('generation_female').value);
+   		var gm = parseInt(document.getElementById('generation_male').value);
+   		var mf = parseInt(document.getElementById('millenial_female').value);
+   		var mm = parseInt(document.getElementById('millenial_male').value);
+		
+		var female_total = parseInt(bbf+gf+mf);
+		var male_total = parseInt(bbm+gm+mm);
+		
+		document.getElementById('total_female').innerHTML = female_total;
+		document.getElementById('total_male').innerHTML = male_total;
+		
+		var person = female_total + male_total;
+		
+		jQuery("#bb_female_percent").html(getPercent(bbf, person) + '%');
+		jQuery("#bb_male_percent").html(getPercent(bbm, person) + '%');
+		jQuery("#generation_female_percent").html(getPercent(gf, person) + '%');
+		jQuery("#generation_male_percent").html(getPercent(gm, person) + '%');
+		jQuery("#millenial_female_percent").html(getPercent(mf, person) + '%');
+		jQuery("#millenial_male_percent").html(getPercent(mm, person) + '%');
+		
+		jQuery("#total_female_perct").html(getPercent(female_total, (female_total + male_total)) + '%');
+		jQuery("#total_male_perct").html(getPercent(male_total, (female_total + male_total)) + '%');
+		
+		
+		//document.getElementById('total_female_perct').innerHTML = parseInt(bbfp+gfp+mfp)+"%";
+		//document.getElementById('total_male_perct').innerHTML = parseInt(bbmp+gmp+mmp)+"%";
+}
+
+function getPercent(val , total) {
+		return (val/total*100).toFixed(2);
+}
+</script> 
+
+<!-- Diversity By Origin --> 
+<script type="text/javascript">
+	function diversity_origin_chart() {
+		var ad = parseInt(document.getElementById('america_diversity').value);
+		var ed = parseInt(document.getElementById('europe_diversity').value);
+		var md = parseInt(document.getElementById('mena_diversity').value);
+		var afd = parseInt(document.getElementById('africa_diversity').value);
+		var apd = parseInt(document.getElementById('asia_diversity').value);
+		var total_v = parseInt(ad+ed+md+afd+apd);
+		/*alert(total_v);*/
+		if(total_v != 100)
+		{
+			alert("please check value is not equal to 100%");
+			return false;
+		}
+		else 
+		{
+		
+	var chart = new CanvasJS.Chart("diversity_origin_chartContainer",
+	{
+		title:{
+			text: ""
+		},
+		exportFileName: "Pie Chart",
+		exportEnabled: true,
+                animationEnabled: true,
+		legend:{
+			verticalAlign: "bottom",
+			horizontalAlign: "center"
+		},
+		data: [
+		{       
+			type: "doughnut",
+			//showInLegend: true,
+			//toolTipContent: "{legendText}: <strong>{y}%</strong>",
+			indexLabel: "{label} {y}%",
+			dataPoints: [
+				{  y: afd, label: "AFRICA", color: "#ed1c24"},
+				{  y: md, label: "MENA", color: "#065567" },
+				{  y: ed, label: "EUROPE", color: "#faa21b" },
+				{  y: ad, label: "AMERICA", color:"#307d99" },
+				{  y: apd, label: "ASIA PACIFIC", color: "#fec00f" }
+			]
+	}
+	]
+	});
+		
+	chart.render();}
+}
+   
+	</script> 
+<script type="text/javascript">
+	function onload_diversity_origin_chart() {
+	var vm4 = parseInt(document.getElementById('vol_mea_jan_14').value);
+	var vm5 = parseInt(document.getElementById('vol_mea_jan_15').value);
+	var vcj4 = parseInt(document.getElementById('vol_mcww_jan_14').value);
+	var vcj5 = parseInt(document.getElementById('vol_mcww_jan_15').value);
+	var ivm4 = parseInt(document.getElementById('invol_mea_jan_14').value);
+	var ivm5 = parseInt(document.getElementById('invol_mea_jan_15').value);
+	var ivcj4 = parseInt(document.getElementById('invol_mcww_jan_14').value);
+	var ivcj5 = parseInt(document.getElementById('invol_mcww_jan_15').value);
+	
+	var chart = new CanvasJS.Chart("diversity_origin_chartContainer",
+	{
+		title:{
+			text: ""
+		},
+		exportFileName: "Pie Chart",
+		exportEnabled: true,
+                animationEnabled: true,
+		legend:{
+			verticalAlign: "bottom",
+			horizontalAlign: "center"
+		},
+		data: [
+		{       
+			type: "doughnut",
+			//showInLegend: true,
+			//toolTipContent: "{legendText}: <strong>{y}%</strong>",
+			indexLabel: "{label} {y}%",
+			dataPoints: [
+				{  y: 23, label: "AFRICA", color: "#ed1c24"},
+				{  y: 20, label: "MENA", color: "#065567" },
+				{  y: 18, label: "EUROPE", color: "#faa21b" },
+				{  y: 8, label: "AMERICA", color:"#307d99" },
+				{  y: 31, label: "ASIA PACIFIC", color: "#fec00f" }
+			]
+	}
+	]
+	});
+		
+	chart.render();
+}
+   
+	</script> 
+
+<!--YTD MEA ATTRITION Vs. MCWW --> 
+<script>
+function ytd_mea_chart() {
+	var chart = new CanvasJS.Chart("ytd_mea_mcww_chart",
+	{
+		
+		axisX:{
+			title: "Rooms"
+		},
+		data: [
+		{
+			type: "stackedColumn100",
+			legendText: "Boys",
+			showInLegend: "true",
+			indexLabel: "#percent %",
+			indexLabelPlacement: "inside",
+			indexLabelFontColor: "white",
+			dataPoints: [
+				{  y: 40, label: "MEA<br/>Jan 2014"},
+				{  y: 10, label: "MEA<br/>Jan 2015" },
+				{  y: 72, label: "MCWW<br/>Jan 2014" },
+				{  y: 30, label: "MCWW<br/>Jan 2015" }
+			]
+		},
+		{
+			type: "stackedColumn100",
+			legendText: "Girls",
+			showInLegend: "true",
+			indexLabel: "#percent %",
+			indexLabelPlacement: "inside",
+			indexLabelFontColor: "white",
+			dataPoints: [
+				{  y: 20, label: "MEA<br/>Jan 2014"},
+				{  y: 14, label: "MEA<br/>Jan 2014" },
+				{  y: 40, label: "MCWW<br/>Jan 2014" },
+				{  y: 43, label: "MCWW<br/>Jan 2014" }
+			]
+		}
+		]
+	});
+	chart.render();
+	}
+</script> 
+<script>
+/*function location_disp()
+{
+	var ua = document.getElementById('uae').value;
+   var sa = parseInt(document.getElementById('sa').value);
+   var ni = parseInt(document.getElementById('nigeria').value);
+   var eg = parseInt(document.getElementById('egypt').value);
+   var ke = parseInt(document.getElementById('kenya').value);
+   var qa = parseInt(document.getElementById('qatar').value);
+   var mo = parseInt(document.getElementById('morocco').value);
+   var ksa = parseInt(document.getElementById('ksa').value);
+   var pak = parseInt(document.getElementById('pak').value);
+   var jrdn = parseInt(document.getElementById('jordan').value);
+   var lebn = parseInt(document.getElementById('lebanon').value);
+	
+		if(ua == '')
+		{
+			document.getElementById('loc1').innerHTML = "168";
+		}
+		else
+		{
+			document.getElementById('loc1').innerHTML = document.getElementById('uae').value;
+		}
+		
+}*/
+$(document).ready(function(e) {
+    $(window).load(draw_chart_load);
+	$(window).load(draw_chart_location_load);
+	$(window).load(hc_support_chart_draw_load);
+	$(window).load(diversity_origin_chart_load);
+	$(window).load(ytd_mea_chart_load);
+	$(window).load(career_move_chart_load);
+	
+});
+</script> 
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+<script>
+$(document).ready(function(e) {
+	$('#preview').click(function(){
+		//$('.hr_dis').show();
+		//hide_button();
+		//$('.form').hide();
+		//$("form").removeClass("form");
+		//$("form").addClass("form_no");
+		$('.form').hide();
+		$('.submit_button').hide();
+		//$("button").removeClass("submit_button");
+		//$("button").addClass("submit_button_no");
+		$("hr").removeClass("hr_dis");
+		$("form").addClass("hr_dis_all");
+		$("div.chart1_img").addClass("chart1_img1");
+		$("#back").show();
+		$("#download").show();
+		$('body').addClass('preview');
+		$(this).hide();
+		$('html, body').animate({ scrollTop: 0 }, 'slow', function () {});
+		});
+	$('#back').click(function(){
+		//$('.hr_dis').show();
+		//hide_button();
+		//$('.form').hide();
+		//$("form").removeClass("form");
+		//$("form").addClass("form_no");
+		$('.form').show();
+		$('.submit_button').show();
+		//$("button").removeClass("submit_button");
+		//$("button").addClass("submit_button_no");
+		$("hr").addClass("hr_dis");
+		$("form").removeClass("hr_dis_all");
+		$("div.chart1_img").removeClass("chart1_img1");
+		$("#preview").show();
+		$('body').removeClass('preview');
+		$(this).hide();
+		$("#download").hide();
+		});
+	$('#download').click(function(){
+		
+		jQuery.ajax({
+			url: 'generate_pdf.php',
+			type: 'post',
+			data: jQuery('.wrapper').serialize(),
+			data1:{
+					date:jQuery('#date').val(),
+					buPie: jQuery('#chartContainer img').attr('src'),
+					locations: jQuery('#frm2').serialize(),
+					meaFront: jQuery('#chart-view-HC-SUMMARY img').attr('src'),
+					diversity: jQuery('#frm4').serialize(),
+					diversity_origin: jQuery('#diversity_origin_chartContainer img').attr('src'),
+					ytd_mea: jQuery('#ytd_container img').attr('src'),
+					carrier_move: jQuery('#carrer_move_container img').attr('src'),
+					jan_move: jQuery('#frm10').serialize(),
+					hire: jQuery('#frm11').serialize(),
+				}
+				
+		});
+		
+	});
+	
+	});
+function draw_chart_load() {
+	
+	
+		var hr = document.getElementById('hr_detail').value;
+		var lfi = document.getElementById('lfi_detail').value;
+		var fi = document.getElementById('finance_detail').value;
+		var ot = document.getElementById('ot_detail').value;
+		var gps = document.getElementById('gps_detail').value;
+		var imk = document.getElementById('imk_detail').value;
+		
+		
+		hr = parseInt(hr) ? parseInt(hr) : 0;
+		lfi = parseInt(lfi) ? parseInt(lfi) : 0;
+		fi = parseInt(fi) ? parseInt(fi) : 0;
+		ot = parseInt(ot) ? parseInt(ot) : 0;
+		gps = parseInt(gps) ? parseInt(gps) : 0;
+		imk = parseInt(imk) ? parseInt(imk) : 0;
+		
+		/*var hr = parseInt(document.getElementById('hr_detail').value);
+		var lfi = parseInt(document.getElementById('lfi_detail').value);
+		var fi = parseInt(document.getElementById('finance_detail').value);
+		var ot = parseInt(document.getElementById('ot_detail').value);
+		var gps = parseInt(document.getElementById('gps_detail').value);
+		var imk = parseInt(document.getElementById('imk_detail').value);*/
+		
+		var toatl_chart = parseInt(hr+lfi+fi+ot+gps+imk);
+		if(toatl_chart != 100)
+		{
+			alert("please check total is not equal to 100%");
+			return false;
+		}
+	
+	
+	jQuery('#chartContainer').html('<img style="width:320px;" src="'+jpgrapg_url+'piecex1.php?HR='+hr+'&LFI='+lfi+'&FINANCE='+fi+'&OT='+ot+'&GPS='+gps+'&IMK='+imk+'&'+(new Date().getTime())+'" />');
+	
+}
+function draw_chart_location_load() {
+	
+	
+	var ua = parseInt(document.getElementById('uae').value);
+   var sa = parseInt(document.getElementById('sa').value);
+   var ni = parseInt(document.getElementById('nigeria').value);
+   var eg = parseInt(document.getElementById('egypt').value);
+   var ke = parseInt(document.getElementById('kenya').value);
+   var qa = parseInt(document.getElementById('qatar').value);
+   var mo = parseInt(document.getElementById('morocco').value);
+   var ksa = parseInt(document.getElementById('ksa').value);
+   var pak = parseInt(document.getElementById('pak').value);
+   var jrdn = parseInt(document.getElementById('jordan').value);
+   var lebn = parseInt(document.getElementById('lebanon').value);
+   
+   var total = parseInt(ua+sa+ni+eg+ke+qa+mo+ksa+pak+jrdn+lebn);
+   	  
+	var ua_per = (((document.getElementById('uae').value)/total)*100);
+   var sa_per = (((document.getElementById('sa').value)/total)*100);
+   var ni_per = (((document.getElementById('nigeria').value)/total)*100);
+   var eg_per = (((document.getElementById('egypt').value)/total)*100);
+   var ke_per = (((document.getElementById('kenya').value)/total)*100);
+   var qa_per = (((document.getElementById('qatar').value)/total)*100);
+   var mo_per = (((document.getElementById('morocco').value)/total)*100);
+   var ksa_per = (((document.getElementById('ksa').value)/total)*100);
+   var pak_per = (((document.getElementById('pak').value)/total)*100);
+   var jrdn_per = (((document.getElementById('jordan').value)/total)*100);
+   var lebn_per = (((document.getElementById('lebanon').value)/total)*100);
+   
+   
+   
+		ua = parseInt(ua) ? parseInt(ua) : 0;
+		sa = parseInt(sa) ? parseInt(sa) : 0;
+		ni = parseInt(ni) ? parseInt(ni) : 0;
+		eg = parseInt(eg) ? parseInt(eg) : 0;
+		ke = parseInt(ke) ? parseInt(ke) : 0;
+		qa = parseInt(qa) ? parseInt(qa) : 0;
+		mo = parseInt(mo) ? parseInt(mo) : 0;
+		ksa = parseInt(ksa) ? parseInt(ksa) : 0;
+		pak = parseInt(pak) ? parseInt(pak) : 0;
+		jrdn = parseInt(jrdn) ? parseInt(jrdn) : 0;
+		lebn = parseInt(lebn) ? parseInt(lebn) : 0;
+	
+	
+	jQuery('#chart-view-2-inner').html('<img style="width:100%;height:75px;" src="'+jpgrapg_url+'example24.php?ua='+ua+'&sa='+sa+'&ni='+ni+'&eg='+eg+'&ke='+ke+'&qa='+qa+'&mo='+mo+'&ksa='+ksa+'&pak='+pak+'&jrdn='+jrdn+'&lebn='+lebn+'&'+(new Date().getTime())+'" />');
+	
+	
+	
+	
+	var html = '<div style="width:100%">';
+	
+	if(ua > 0) {
+		html += '<div style="float:left;width:'+ua_per+'%; background-color:#FAA21B;height: 23px;  padding-top: 18px;text-align: left;font-weight: bold;color: #FFFFFF;"><span style="padding-left:4px;">'+Math.round(ua)+'</span></div>';
+	}
+	if(sa > 0) {
+		html += '<div style="float:left;width:'+sa_per+'%; background-color:#ED1C24;height: 23px;  padding-top: 18px;text-align: left;font-weight: bold;color: #FFFFFF;"><span style="padding-left:4px;">'+Math.round(sa)+'</span></div>';
+	}
+	if(ni > 0) {
+		html += '<div style="float:left;width:'+ni_per+'%; background-color:#065567;height: 23px;  padding-top: 18px;text-align: left;font-weight: bold;color: #FFFFFF;"><span style="padding-left:4px;">'+Math.round(ni)+'</span></div>';
+	}
+	if(eg > 0) {
+		html += '<div style="float:left;width:'+eg_per+'%; background-color:#FEC00F;height: 23px;  padding-top: 18px;text-align: left;font-weight: bold;color: #FFFFFF;"><span style="padding-left:4px;">'+Math.round(eg)+'</span></div>';
+	}
+	if(ke > 0) {
+		html += '<div style="float:left;width:'+ke_per+'%; background-color:#B02D25;height: 23px;  padding-top: 18px;text-align: left;font-weight: bold;color: #FFFFFF;"><span style="padding-left:4px;">'+Math.round(ke)+'</span></div>';
+	}
+	if(qa > 0) {
+		html += '<div style="float:left;width:'+qa_per+'%; background-color:#307D99;height: 23px;  padding-top: 18px;text-align: left;font-weight: bold;color: #FFFFFF;"><span style="padding-left:4px;">'+Math.round(qa)+'</span></div>';
+	}
+	if(mo > 0) {
+		html += '<div style="float:left;width:'+mo_per+'%; background-color:#DA1C5C;height: 23px;  padding-top: 18px;text-align: left;font-weight: bold;color: #FFFFFF;"><span style="padding-left:4px;">'+Math.round(mo)+'</span></div>';
+	}
+	if(ksa > 0) {
+		html += '<div style="float:left;width:'+ksa_per+'%; background-color:#754D29;height: 23px;  padding-top: 18px;text-align: left;font-weight: bold;color: #FFFFFF;"><span style="padding-left:4px;">'+Math.round(ksa)+'</span></div>';
+	}
+	if(pak > 0) {
+		html += '<div style="float:left;width:'+pak_per+'%; background-color:#808285;height: 23px;  padding-top: 18px;text-align: left;font-weight: bold;color: #FFFFFF;"><span style="padding-left:4px;">'+Math.round(pak)+'</span></div>';
+	}
+	if(jrdn > 0) {
+		html += '<div style="float:left;width:'+jrdn_per+'%; background-color:#2BB673;height: 23px;  padding-top: 18px;text-align: left;font-weight: bold;color: #FFFFFF;"><span style="padding-left:4px;">'+Math.round(jrdn)+'</span></div>';
+	}
+	if(lebn > 0) {
+		html += '<div style="float:left;width:'+lebn_per+'%; background-color:#92278F;height: 23px;  padding-top: 18px;text-align: left; font-weight:bold;font-weight: bold;color: #FFFFFF;"><span style="padding-left:4px;">'+Math.round(lebn)+'</span></div>';
+	}
+	
+	html += '</div>';
+	
+	jQuery('#chart-view-2-inner').html(html);
+	
+   document.getElementById('ua_span').innerHTML = ua;
+   document.getElementById('sa_span').innerHTML = sa;
+   document.getElementById('ni_span').innerHTML = ni;
+   document.getElementById('eg_span').innerHTML = eg;
+   document.getElementById('ke_span').innerHTML = ke;
+   document.getElementById('qa_span').innerHTML = qa;
+   document.getElementById('mo_span').innerHTML = mo;
+   document.getElementById('ksa_span').innerHTML = ksa;
+   document.getElementById('pak_span').innerHTML = pak;
+   document.getElementById('jrdn_span').innerHTML = jrdn;
+   document.getElementById('lebn_span').innerHTML = lebn;
+	
+	
+	
+}
+
+
+	function hc_support_chart_draw_load() {
+		var fny = parseInt(document.getElementById('front_newYear').value);
+  		var mny = parseInt(document.getElementById('middle_newYear').value);
+   		var bny = parseInt(document.getElementById('back_newYear').value);
+   		var fly = parseInt(document.getElementById('front_lastYear').value);
+   		var mly = parseInt(document.getElementById('middle_lastYear').value);
+   		var bly = parseInt(document.getElementById('back_lastYear').value);
+		
+		
+	
+	jQuery('#chart-view-HC-SUMMARY').html('<img style="" src="'+jpgrapg_url+'example22.php?fny='+fny+'&mny='+mny+'&bny='+bny+'&fly='+fly+'&mly='+mly+'&bly='+bly+'&'+(new Date().getTime())+'" />');
+}
+
+
+	function diversity_origin_chart_load() {
+		var ad = parseInt(document.getElementById('america_diversity').value);
+		var ed = parseInt(document.getElementById('europe_diversity').value);
+		var md = parseInt(document.getElementById('mena_diversity').value);
+		var afd = parseInt(document.getElementById('africa_diversity').value);
+		var apd = parseInt(document.getElementById('asia_diversity').value);
+		var total_v = parseInt(ad+ed+md+afd+apd);
+		/*alert(total_v);*/
+		if(total_v != 100)
+		{
+			alert("please check value is not equal to 100%");
+			return false;
+		}
+		
+		
+		
+		ad = parseInt(ad) ? parseInt(ad) : 0;
+		ed = parseInt(ed) ? parseInt(ed) : 0;
+		md = parseInt(md) ? parseInt(md) : 0;
+		afd = parseInt(afd) ? parseInt(afd) : 0;
+		apd = parseInt(apd) ? parseInt(apd) : 0;
+		
+	
+	jQuery('#diversity_origin_chartContainer').html('<img style="width:320px;" src="'+jpgrapg_url+'diversity-by-origin.php?ad='+ad+'&ed='+ed+'&md='+md+'&afd='+afd+'&apd='+apd+'&'+(new Date().getTime())+'" />');
+		
+		
+}
+
+
+function ytd_mea_chart_load() {
+	
+	
+	var vm4 = parseFloat(document.getElementById('vol_mea_jan_14').value);
+	var vm5 = parseFloat(document.getElementById('vol_mea_jan_15').value);
+	var vcj4 = parseFloat(document.getElementById('vol_mcww_jan_14').value);
+	var vcj5 = parseFloat(document.getElementById('vol_mcww_jan_15').value);
+	var ivm4 = parseFloat(document.getElementById('invol_mea_jan_14').value);
+	var ivm5 = parseFloat(document.getElementById('invol_mea_jan_15').value);
+	var ivcj4 = parseFloat(document.getElementById('invol_mcww_jan_14').value);
+	var ivcj5 = parseFloat(document.getElementById('invol_mcww_jan_15').value);
+	
+	
+		
+		vm4 = parseFloat(vm4) ? parseFloat(vm4) : 0;
+		vm5 = parseFloat(vm5) ? parseFloat(vm5) : 0;
+		vcj4 = parseFloat(vcj4) ? parseFloat(vcj4) : 0;
+		vcj5 = parseFloat(vcj5) ? parseFloat(vcj5) : 0;
+		ivm4 = parseFloat(ivm4) ? parseFloat(ivm4) : 0;
+		ivm5 = parseFloat(ivm5) ? parseFloat(ivm5) : 0;
+		ivcj4 = parseFloat(ivcj4) ? parseFloat(ivcj4) : 0;
+		ivcj5 = parseFloat(ivcj5) ? parseFloat(ivcj5) : 0;
+	
+	
+	jQuery('#ytd_container').html('<img style="" src="'+jpgrapg_url+'example23.php?vm4='+vm4+'&vm5='+vm5+'&vcj4='+vcj4+'&vcj5='+vcj5+'&ivm4='+ivm4+'&ivm5='+ivm5+'&ivcj4='+ivcj4+'&ivcj5='+ivcj5+'&'+(new Date().getTime())+'" />');
+	
+	
+	//
+}
+
+
+
+
+
+function career_move_chart_load() {
+	
+	 
+	var sm5 = parseInt(document.getElementById('smart_move_2015').value);
+	var u5 = parseInt(document.getElementById('upward_2015').value);
+	var t5 = parseInt(document.getElementById('temp_2015').value);
+	var sm4 = parseInt(document.getElementById('smart_move_2014').value);
+	var u4 = parseInt(document.getElementById('upward_2014').value);
+	var t4 = parseInt(document.getElementById('temp_2014').value);
+	
+	
+		
+		sm5 = parseInt(sm5) ? parseInt(sm5) : 0;
+		u5 = parseInt(u5) ? parseInt(u5) : 0;
+		t5 = parseInt(t5) ? parseInt(t5) : 0;
+		sm4 = parseInt(sm4) ? parseInt(sm4) : 0;
+		u4 = parseInt(u4) ? parseInt(u4) : 0;
+		t4 = parseInt(t4) ? parseInt(t4) : 0;
+	
+	
+	jQuery('#carrer_move_container').html('<img style="" src="'+jpgrapg_url+'carrier-moves.php?sm5='+sm5+'&u5='+u5+'&t5='+t5+'&sm4='+sm4+'&u4='+u4+'&t4='+t4+'&'+(new Date().getTime())+'" />');
+	
+	
+	//
+}
+
+var jpgrapg_url = 'jgraph/jpgraph-3.5.0b1/';
+
+
+function add_more(frm, increase){
+	
+	var count_rows = jQuery('#'+frm+' > table').size();
+	
+	if(count_rows > 10) {
+		alert('No more data can be added.');
+		return;
+	}
+	
+	
+	
+	jQuery('#'+frm).append(jQuery('#'+frm+' > table:last').clone());
+	jQuery('#'+frm+' > table:last').find('input').val('');
+	
+	if(increase == '1') {
+		update_hiring(frm);
+	}
+	
+}
+
+
+
+
+function remove_last(frm, decrease) {
+
+	
+	var count_rows = jQuery('#'+frm+' > table').size();
+	
+	if(count_rows < 3) {
+		alert('You can not remove more rows.');
+		return;
+	}
+	
+	jQuery('#'+frm+' > table:last').remove();
+
+	if(decrease == '1') {
+		update_hiring(frm);
+	}
+}
+
+function update_hiring(frm){
+	jQuery('#new_hire_count').html((jQuery('#'+frm+' > table').size() - 1));	
+}
+</script>
+</body>
+</html>
